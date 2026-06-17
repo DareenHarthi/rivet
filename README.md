@@ -5,7 +5,7 @@
 
 
 RIVET is a robust voice attribute editor that edits speaker **age** and **gender** while preserving speaker identity.
-It introduces two key innovations: an *idempotency* constraint (`f(f(x)) = f(x)`) that acts as an implicit regularizer, and a conditional normalizing flow over speaker embeddings that makes editing robust to the noisy, inconsistent attribute labels found in large-scale speech corpora.
+It introduces an *idempotency* constraint (`f(f(x)) = f(x)`) that acts as an implicit regularizer that makes editing robust to the noisy, inconsistent attribute labels found in large-scale speech corpora.
 
 **Paper:** Robust Idempotent Voice Attribute Editing ([arXiv](https://arxiv.org/submit/7726288/view)) — Interspeech 2026.  
 **Authors:** Dareen Alharthi, Bhuvan Koduru, Rita Singh, Bhiksha Raj — Carnegie Mellon University
