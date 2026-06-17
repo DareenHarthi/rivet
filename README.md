@@ -86,10 +86,9 @@ Then point `data.training_files` / `data.validation_files` in the config to the 
 
 Datasets used in the paper:
 
-| Dataset | Description | Notes |
-|---------|-------------|-------|
-| [GLOBE](https://arxiv.org/abs/2406.14875) | ~535 h, 23,519 speakers, 164 global accents | Main training set |
-| [EARS](https://arxiv.org/abs/2406.04923) | ~7 h, high-quality speech | Label-noise robustness experiments |
+
+- [GLOBE](https://arxiv.org/abs/2406.14875) 
+- [EARS](https://sp-uhh.github.io/ears_dataset/) 
 
 ## Train RIVET
 
@@ -103,45 +102,10 @@ CUDA_VISIBLE_DEVICES=0 python train_rivet.py -c configs/globe_base.json -m globe
 CUDA_VISIBLE_DEVICES=0,1,2,3 python train_rivet.py -c configs/globe_base.json -m globe_base
 ```
 
-Checkpoints are written every `train.eval_interval` steps and training resumes automatically from the latest checkpoints in `logs/<model_name>/`:
 
-```
-G_<step>.pth        # VITS generator
-D_<step>.pth        # discriminator
-ECAPA_<step>.pth    # speaker encoder
-CNF_<step>.pth      # SpeakerFlow (normalizing flow)
-NOISE_<step>.pth    # noise-matrix optimizer state
-```
 
-Configs:
 
-| Config | Dataset | Notes |
-|--------|---------|-------|
-| `configs/globe_base.json` | GLOBE | Main config (256-dim model) |
-| `configs/ears.json` | EARS | Smaller model (192-dim), label-noise experiments |
 
-## Repository Structure
-
-```
-rivet/
-├── train_rivet.py     # Training script (DDP, multi-GPU)
-├── edit.py            # Editing / inference
-├── preprocess.py      # Text cleaning and phonemization
-├── models.py          # SynthesizerTrn, SpeakerFlow, MultiPeriodDiscriminator
-├── ecapa.py           # ECAPA-TDNN speaker encoder + noisy-label classifiers
-├── modules.py         # Flow layers and convolutional building blocks
-├── attentions.py      # Multi-head attention and encoder/decoder
-├── losses.py          # Generator, discriminator, feature, and KL losses
-├── transforms.py      # Piecewise rational quadratic spline transforms
-├── mel_processing.py  # STFT and mel-spectrogram utilities
-├── commons.py         # Init, masking, and padding helpers
-├── utils.py           # Checkpoints, logging, hyperparameters
-├── data_utils.py      # Dataset loader, SpecAugment, bucket sampler
-├── text/              # Text cleaners and symbol vocabulary
-├── monotonic_align/   # Cython monotonic alignment (compile before use)
-├── configs/           # globe_base.json, ears.json
-└── filelists/         # Training / validation filelists
-```
 
 ## Acknowledgements
 
