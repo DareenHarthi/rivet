@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Build artifacts (monotonic_align)
+monotonic_align/build/
+monotonic_align/**/*.so
+monotonic_align/**/*.c
+
+# Training outputs
+logs/
+edited_samples/
+*.pth
+
+# Data / generated
+*.spec.pt
+*.cleaned
+*.balanced.pkl
+
+# Audio
+*.wav
