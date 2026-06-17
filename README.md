@@ -1,8 +1,8 @@
 # RIVET
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://arxiv.org/submit/7726288/view)
-[![Demo](https://img.shields.io/badge/🔊%20Demo-RIVET-blue)](https://username.github.io/rivet)
+[![arXiv](https://img.shields.io/badge/arXiv-772.6288-b31b1b.svg)](https://arxiv.org/submit/7726288/view)
+
 
 RIVET is a robust voice attribute editor that edits speaker **age** and **gender** while preserving speaker identity.
 It introduces two key innovations: an *idempotency* constraint (`f(f(x)) = f(x)`) that acts as an implicit regularizer, and a conditional normalizing flow over speaker embeddings that makes editing robust to the noisy, inconsistent attribute labels found in large-scale speech corpora.
